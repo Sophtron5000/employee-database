@@ -12,7 +12,7 @@ const db = mysql.createConnection(
     console.log('Connected to the employee_db database.')
 );
 
-function startApp() {
+function menu() {
     inquirer
   .prompt({
     name: "menu",
@@ -65,14 +65,78 @@ function startApp() {
     }
   })
 }
-startApp();
+menu();
 
 function viewDepartments() {
     db.query(
-        'SELECT * FROM employee.department',
+        'SELECT * FROM department',
         function(err, results) {
-          console.log(results); // results contains rows returned by server
-          console.table(results)
-        }
+          console.table(results);
+          menu();
+        } 
       ); 
+}
+
+function viewPositions() {
+    db.query(
+        'SELECT * FROM position',
+        function(err, results) {
+          console.table(results);
+          menu();
+        } 
+      ); 
+}
+
+function viewEmployees() {
+    db.query(
+        'SELECT * FROM employee',
+        function(err, results) {
+          console.table(results);
+          menu();
+        } 
+      ); 
+}
+//add Department function
+function addDepartment() {
+    db.query(
+        'SELECT * FROM department',
+        function(err, results) {
+          console.table(results);
+          menu();
+        } 
+      ); 
+}
+//add position function
+function addPosition() {
+    db.query(
+        'SELECT * FROM department',
+        function(err, results) {
+          console.table(results);
+          menu();
+        } 
+      ); 
+}
+//add employee function
+function addEmployee() {
+    db.query(
+        'SELECT * FROM department',
+        function(err, results) {
+          console.table(results);
+          menu();
+        } 
+      ); 
+}
+//add update employee function
+function updateEmployeePosition() {
+    db.query(
+        'SELECT * FROM department',
+        function(err, results) {
+          console.table(results);
+          menu();
+        } 
+      ); 
+}
+
+function exit() {
+    db.end(); 
 }
