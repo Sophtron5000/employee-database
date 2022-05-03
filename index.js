@@ -64,12 +64,15 @@ function startApp() {
             break;
     }
   })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
 }
 startApp();
+
+function viewDepartments() {
+    db.query(
+        'SELECT * FROM employee.department',
+        function(err, results) {
+          console.log(results); // results contains rows returned by server
+          console.table(results)
+        }
+      ); 
+}
