@@ -23,9 +23,9 @@ CREATE TABLE position (
 DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
   id INT NOT NULL PRIMARY KEY,
-  manager_id INTEGER REFERENCES employees(id),
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
+  manager_id INTEGER REFERENCES employees(id),
   position_id INT,
   FOREIGN KEY (position_id)
     REFERENCES position (id)

@@ -89,7 +89,7 @@ function viewPositions() {
 
 function viewEmployees() {
     db.query(
-        'SELECT * FROM employee',
+        'SELECT * FROM employee JOIN position ON employee.position_id = position.id;',
         function(err, results) {
           console.table(results);
           menu();
